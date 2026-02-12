@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"midtrans-gateway/internal/handlers"
 	"midtrans-gateway/internal/midtrans"
@@ -11,7 +12,11 @@ import (
 )
 
 func main() {
-	godotenv.Load()
+	if os.Getenv("ENV") == "production" {
+		godotenv.Load(".env.production")
+	} else {
+		godotenv.Load()
+	}
 	midtrans.LoadConfig()
 	for _, item := range midtrans.WebhookConfig.URLs {
 		log.Println("Configured URL:", item.Code, "->", item.URL)
