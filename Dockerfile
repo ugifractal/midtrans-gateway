@@ -20,7 +20,7 @@ FROM alpine:latest
 WORKDIR /app
 
 # Install ca-certificates for HTTPS requests (useful for webhooks)
-RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add ca-certificates curl
 
 # Copy binary from builder
 COPY --from=builder /app/midtrans-gateway .
