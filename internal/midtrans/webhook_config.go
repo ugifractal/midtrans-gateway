@@ -19,7 +19,8 @@ type Config struct {
 var WebhookConfig Config
 
 func LoadConfig() {
-	data, err := os.ReadFile("config.yml")
+	location := os.Getenv("CONFIG_FILE")
+	data, err := os.ReadFile(location)
 	if err != nil {
 		log.Fatalf("failed to read file: %v", err)
 	}
