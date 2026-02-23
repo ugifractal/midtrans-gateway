@@ -28,8 +28,5 @@ COPY --from=builder /app/midtrans-gateway .
 # Expose port
 EXPOSE 8080
 
-HEALTHCHECK --interval=10s --timeout=5s --start-period=40s --retries=5 \
-  CMD curl -f http://localhost:8080/up || exit 1
-
 # Run the binary
 CMD ["./midtrans-gateway"]
