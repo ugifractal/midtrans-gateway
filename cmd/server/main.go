@@ -24,6 +24,7 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/webhooks/midtrans", handlers.MidtransWebhook)
+	mux.HandleFunc("/up", handlers.HealthCheck)
 
 	log.Println("Listening on :8080")
 	log.Fatal(http.ListenAndServe(":8080", mux))

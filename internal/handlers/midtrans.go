@@ -10,6 +10,11 @@ import (
 	"net/http"
 )
 
+func HealthCheck(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("OK"))
+}
+
 func MidtransWebhook(w http.ResponseWriter, r *http.Request) {
 	log.Println("Received Midtrans webhook")
 
