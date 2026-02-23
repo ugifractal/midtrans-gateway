@@ -44,3 +44,6 @@ env:
   secret:
     - MIDTRANS_SERVER_KEY
 
+volumes:
+  - /var/lib/midtrans:/var/lib/midtrans
+
